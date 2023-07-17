@@ -1,0 +1,44 @@
+.form {
+  margin: 10px;
+  margin-left: 50px;
+}
+
+.input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease;
+  width: 300px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #46638e;
+}
+
+.btn {
+  background-color: #46638e;
+  padding: 11px 20px;
+  color: #cabea2;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.btn:hover {
+  background-color: #55a39e;
+}
+.btn:active {
+  background-color: royalblue;
+}
+
+
+/* .color1 {color: #d8c1c1;}
+.color2 {color: #cabea2;}
+.color3 {color: #46638e;}
+.color4 {color: #55849e;}
+.color5 {color: #55a39e;} */

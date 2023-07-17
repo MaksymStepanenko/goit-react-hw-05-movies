@@ -1,0 +1,17 @@
+.header {
+  padding: 20px 200px;
+  background-color: #46638e;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.link {
+  margin-right: 10px;
+  font-size: 25px;
+
+}
+
+/* .color1 {color: #d8c1c1;}
+.color2 {color: #cabea2;}
+.color3 {color: #46638e;}
+.color4 {color: #55849e;}
+.color5 {color: #55a39e;} */

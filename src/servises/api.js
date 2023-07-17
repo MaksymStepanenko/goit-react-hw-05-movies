@@ -28,3 +28,16 @@ export const fetchReviewsDetails = async movieId => {
   );
   return data;
 };
+
+export const fetchMoviesByQuery = async query => {
+  const { data } = await axios.get(
+    `${BASE_URL}/search/movie?query=${query}&api_key=${API_KEY}`
+  );
+  return data;
+};
+
+export const imageURL = value => {
+  return `https://image.tmdb.org/t/p/original${value}`;
+}
+
+// https://api.themoviedb.org/3/search/movie?query=qwerty&api_key=a197af2e5cbf9f65cf4b05209460ed0e

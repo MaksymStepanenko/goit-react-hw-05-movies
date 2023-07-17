@@ -2,25 +2,25 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import { fetchTrendMovies } from '../servises/api';
+import { Loader } from 'components/Loader/Loader';
+import MovieCard from '../components/MovieCard/MovieCard';
+import css from './style/HomePage.module.css'
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
-//   const [isLoading, setIsLoading] = useState(false);
-//   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchMoviesData = async () => {
       try {
-        // setIsLoading(true);
+        setIsLoading(true);
         const response = await fetchTrendMovies();
-        //   console.log(response);
         const moviesData = response.results;
-        //   console.log(movieTitle)
         setMovies([...moviesData]);
       } catch (error) {
-        // setError(error.message);
+        console.log(error.message);
       } finally {
-        // setIsLoading(false);
+        setIsLoading(false);
       }
     };
     fetchMoviesData();
@@ -28,15 +28,18 @@ const HomePage = () => {
 
   return (
     <div>
-      <h2>Tranding today</h2>
-      <ul>
-        {movies.map(({ title, id }) => {
+      {isLoading && <Loader />}
+      <h2 className={css.title}>Tranding today:</h2>
+      <ul className={css.list}>
+        {movies.map(({ title, poster_path, id, release_date }) => {
           return (
-            <li key={id}>
-              <Link to={`/movies/${id}`}>
-                <p>{title}</p>
-              </Link>
-            </li>
+            <Link to={`/movies/${id}`} key={id} className={css.link}>
+              <MovieCard
+                title={title}
+                poster_path={poster_path}
+                release_date={release_date}
+              />
+            </Link>
           );
         })}
       </ul>

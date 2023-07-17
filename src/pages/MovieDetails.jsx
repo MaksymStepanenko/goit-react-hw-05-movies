@@ -1,27 +1,35 @@
-import { useState, useEffect } from 'react';
-import { useParams, Link, Routes, Route } from 'react-router-dom';
+import { useState, useEffect, useRef } from 'react';
+import {
+  useParams,
+  Link,
+  Routes,
+  Route,
+  useLocation,
+} from 'react-router-dom';
 
 import { fetchMoviesById } from '../servises/api';
 import Cast from 'components/Cast/Cast';
 import Reviews from 'components/Reviews/Reviews';
+import { Loader } from 'components/Loader/Loader';
 
 const MoviesDetails = () => {
   const [movies, setMovies] = useState({});
-  //   const [isLoading, setIsLoading] = useState(false);
-  //   const [error, setError] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
   const { movieId } = useParams();
+  const location = useLocation();
+  const backLinkHref = useRef(location.state?.from ?? '/');
 
     useEffect(() => {
       if (!movieId) return;
     const fetchMoviesData = async () => {
       try {
-        // setIsLoading(true);
+        setIsLoading(true);
         const response = await fetchMoviesById(movieId);
         setMovies(response);
       } catch (error) {
-        // setError(error.message);
+        console.log(error.message)
       } finally {
-        // setIsLoading(false);
+        setIsLoading(false);
       }
     };
     fetchMoviesData();
@@ -30,12 +38,15 @@ const MoviesDetails = () => {
   const userScore = Math.floor(vote_average * 10);
   return (
     <div>
+      {isLoading && <Loader />}
+      <Link to={backLinkHref.current}>Go back</Link>
       <img
         alt={title}
         src={`https://image.tmdb.org/t/p/original${poster_path}`}
         width="300px"
       />
       <strong>{title}</strong>
+      {/* add year film */}
       <p>User Score: {userScore}%</p>
       <p>Overview: {overview}</p>
       <p>Genres</p>

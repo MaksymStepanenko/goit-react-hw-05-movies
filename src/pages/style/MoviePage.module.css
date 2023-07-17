@@ -1,0 +1,14 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  /* display: grid; */
+  list-style: none;
+  justify-content: space-around;
+  padding-left: 0;
+}
+
+.link {
+    text-decoration: none;
+    color: inherit;
+}

@@ -4,12 +4,13 @@ import Header from './Header/Header';
 import HomePage from 'pages/HomePage';
 import MoviesPage from 'pages/MoviesPage';
 import MovieDetails from 'pages/MovieDetails'
+import css from './App.module.css'
 
 export const App = () => {
   return (
-    <div>
+    <div >
       <Header />
-      <main>
+      <main className={css.wrap}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/movies" element={<MoviesPage />} />
