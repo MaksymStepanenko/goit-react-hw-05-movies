@@ -9,6 +9,10 @@
   font-size: 25px;
 
 }
+.link:hover {
+  color: #55a39e ;
+}
+
 
 /* .color1 {color: #d8c1c1;}
 .color2 {color: #cabea2;}

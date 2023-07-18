@@ -38,7 +38,7 @@ const MoviesPage = () => {
     };
     fetchMoviesData();
   }, [searchTerm]);
-  console.log(totalResults)
+
   return (
     <div>
       {isLoading && <Loader />}
