@@ -6,24 +6,18 @@ import { fetchReviewsDetails } from '../../servises/api';
 const Reviews = () => {
     const [reviews, setReviews] = useState([]);
     const { movieId } = useParams();
-  //   const [isLoading, setIsLoading] = useState(false);
-  //   const [error, setError] = useState(null);
+
 
     useEffect(() => {
       if (!movieId) return;
     const fetchReviewsData = async () => {
       try {
-        // setIsLoading(true);
         const response = await fetchReviewsDetails(movieId);
-        // console.log(response.results);
         const reviews = response.results;
-        // const cast = response.cast;
         setReviews(reviews);
       } catch (error) {
-        // setError(error.message);
-      } finally {
-        // setIsLoading(false);
-      }
+        console.log(error);
+      } 
     };
     fetchReviewsData();
   }, [movieId]);

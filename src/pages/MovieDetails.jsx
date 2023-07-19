@@ -31,11 +31,12 @@ const MoviesDetails = () => {
         const response = await fetchMoviesById(movieId);
         setMovies(response);
       } catch (error) {
-        console.log(error.message);
+        // console.log(error.message);
       }
     };
     fetchMoviesData();
   }, [movieId]);
+
   return (
     <div className={css.container}>
       <Link to={backLinkHref.current} className={css.btnBack}>

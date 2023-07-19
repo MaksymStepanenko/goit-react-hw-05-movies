@@ -1,11 +1,11 @@
 import { useLocation, Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import MovieCard from '../MovieCard/MovieCard';
 import css from './MoviesList.module.css';
 
 const MoviesList = ({ movies, totalResults, title }) => {
   const location = useLocation();
-  console.log(movies);
   return (
     <div>
       <h2 className={css.title}>{title}</h2>
@@ -40,3 +40,10 @@ const MoviesList = ({ movies, totalResults, title }) => {
 };
 
 export default MoviesList;
+
+
+MoviesList.propTypes = {
+  movies: PropTypes.array,
+  totalResults: PropTypes.number,
+  title: PropTypes.string,
+};

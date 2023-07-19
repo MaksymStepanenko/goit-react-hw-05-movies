@@ -1,11 +1,19 @@
-import css from './DetailsMovieCard.module.css'
+import css from './DetailsMovieCard.module.css';
+import PropTypes from 'prop-types';
 
 const DetailsMovieCard = props => {
-  const { title, overview, genres, poster_path, vote_average, release_date, vote_count } =
-    props.movies;
+  const {
+    title,
+    overview,
+    genres,
+    poster_path,
+    vote_average,
+    release_date,
+    vote_count,
+  } = props.movies;
   const userScore = Math.floor(vote_average * 10);
   const date = release_date?.slice(0, 4);
-  console.log(props);
+
   return (
     <div className={css.container}>
       <div className={css.imgContainer}>
@@ -20,7 +28,9 @@ const DetailsMovieCard = props => {
           {title} {date}
         </h2>
 
-              <p>User Score: {userScore}%  Votes: {vote_count}</p>
+        <p>
+          User Score: {userScore}% Votes: {vote_count}
+        </p>
         <p>Overview:</p>
         <p className={css.overview}>{overview}</p>
         <p>Genres:</p>
@@ -41,3 +51,15 @@ const DetailsMovieCard = props => {
 };
 
 export default DetailsMovieCard;
+
+DetailsMovieCard.propTypes = {
+  movies: PropTypes.shape({
+    title: PropTypes.string,
+    overview: PropTypes.string,
+    genres: PropTypes.array,
+    poster_path: PropTypes.string,
+    vote_average: PropTypes.number,
+    release_date: PropTypes.string,
+    vote_count: PropTypes.number,
+  }),
+};

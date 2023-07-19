@@ -1,4 +1,5 @@
 import { imageURL } from 'servises/api';
+import PropTypes from 'prop-types';
 import css from './MovieCard.module.css';
 
 const MovieCard = ({ poster_path, title, release_date }) => {
@@ -24,3 +25,9 @@ const MovieCard = ({ poster_path, title, release_date }) => {
 };
 
 export default MovieCard;
+
+MovieCard.propTypes = {
+  poster_path: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  release_date: PropTypes.string.isRequired,
+};
