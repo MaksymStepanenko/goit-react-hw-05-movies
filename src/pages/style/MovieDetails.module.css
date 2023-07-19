@@ -21,9 +21,31 @@
   background-color: royalblue;
 }
 
-.linkInfo.active {
-  border: 1px solid red;
+.nav{
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
 }
+
+.linkInfo {
+  background-color: #46638e;
+  padding: 6px 13px;
+  color: #cabea2;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.linkInfo:hover {
+  background-color: #55a39e;
+}  
+
+.linkInfo.active {
+  background-color: #55a39e;
+}
+
 
 
 
