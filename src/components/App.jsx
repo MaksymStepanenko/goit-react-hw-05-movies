@@ -2,9 +2,8 @@ import { Route, Routes } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 
 import Header from './Header/Header';
-// import HomePage from 'pages/HomePage';
-// import MoviesPage from 'pages/MoviesPage';
-// import MovieDetails from 'pages/MovieDetails';
+import NotFound from './NotFound/NotFound';
+
 import css from './App.module.css';
 import { Loader } from './Loader/Loader';
 const HomePage = lazy(() => import('pages/HomePage'));
@@ -16,12 +15,12 @@ export const App = () => {
     <div>
       <Header />
       <main className={css.wrap}>
-        <Suspense fallback={<Loader/>}>
+        <Suspense fallback={<Loader />}>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/movies" element={<MoviesPage />} />
             <Route path="/movies/:movieId/*" element={<MovieDetails />} />
-            <Route path="*" element={<HomePage />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
       </main>

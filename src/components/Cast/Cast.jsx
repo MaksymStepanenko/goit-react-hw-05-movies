@@ -33,25 +33,29 @@ const Cast = () => {
   return (
     <div>
       {isLoading && <Loader />}
-      <ul className={css.list}>
-        {cast.map(({ name, profile_path, character, id }) => {
-          return (
-            <li key={id} className={css.item}>
-              <img
-                alt={name}
-                src={
-                  profile_path !== null
-                    ? `https://image.tmdb.org/t/p/original${profile_path}`
-                    : defaultImg
-                }
-                width="200px"
-              />
-              <p className={css.text}>{name}</p>
-              <p className={css.text}>{character}</p>
-            </li>
-          );
-        })}
-      </ul>
+      {cast?.length !== 0 ? (
+        <ul className={css.list}>
+          {cast.map(({ name, profile_path, character, id }) => {
+            return (
+              <li key={id} className={css.item}>
+                <img
+                  alt={name}
+                  src={
+                    profile_path !== null
+                      ? `https://image.tmdb.org/t/p/original${profile_path}`
+                      : defaultImg
+                  }
+                  width="200px"
+                />
+                <p className={css.text}>{name}</p>
+                <p className={css.text}>{character}</p>
+              </li>
+            );
+          })}
+        </ul>
+      ) : (
+        <h2>this film don't have cast list</h2>
+      )}
     </div>
   );
 };
